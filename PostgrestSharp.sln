@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostgrestSharp.WebApi", "src\PostgrestSharp.WebApi\PostgrestSharp.WebApi.csproj", "{7BCCE0C4-CB3D-4CEF-A332-14F626AE452F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostgrestSharp.Abstract", "src\PostgrestSharp.Abstract\PostgrestSharp.Abstract.csproj", "{EC8B19CA-E9C2-4675-B679-B9B901E8B2F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostgrestSharp.SQL", "src\PostgrestSharp.SQL\PostgrestSharp.SQL.csproj", "{2628AE2B-9A5C-4F66-8090-D75FD69C0190}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostgrestSharp.Business", "src\PostgrestSharp.Business\PostgrestSharp.Business.csproj", "{2FAAA9EF-383F-415F-A37E-76943F67AB33}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7BCCE0C4-CB3D-4CEF-A332-14F626AE452F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BCCE0C4-CB3D-4CEF-A332-14F626AE452F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BCCE0C4-CB3D-4CEF-A332-14F626AE452F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BCCE0C4-CB3D-4CEF-A332-14F626AE452F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC8B19CA-E9C2-4675-B679-B9B901E8B2F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC8B19CA-E9C2-4675-B679-B9B901E8B2F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC8B19CA-E9C2-4675-B679-B9B901E8B2F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC8B19CA-E9C2-4675-B679-B9B901E8B2F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2628AE2B-9A5C-4F66-8090-D75FD69C0190}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2628AE2B-9A5C-4F66-8090-D75FD69C0190}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2628AE2B-9A5C-4F66-8090-D75FD69C0190}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2628AE2B-9A5C-4F66-8090-D75FD69C0190}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FAAA9EF-383F-415F-A37E-76943F67AB33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FAAA9EF-383F-415F-A37E-76943F67AB33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FAAA9EF-383F-415F-A37E-76943F67AB33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FAAA9EF-383F-415F-A37E-76943F67AB33}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

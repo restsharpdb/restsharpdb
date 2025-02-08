@@ -16,7 +16,7 @@ This is a work in progress.
 This is a hobby project the roadmap has no due dates yet but this is a broad roadmap to follow:
 
 ###  Roadmap:
-    [ ] Create an example database
+  - [ ] Create an example database
   - [ ] Implement POST (insert) method
     - [ ] Refine datatype validation  
     - [ ] Refine error handling

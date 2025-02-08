@@ -1,0 +1,11 @@
+bin/
+obj/
+/packages/
+riderModule.iml
+/_ReSharper.Caches/
+**.idea/**
+*.http
+/src/PostgrestSharp.WebApi/appsettings.PRD.json
+/src/PostgrestSharp.WebApi/appsettings.QA.json
+/src/PostgrestSharp.WebApi/appsettings.Development.json
+/src/PostgrestSharp.WebApi/appsettings.json

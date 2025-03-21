@@ -46,8 +46,7 @@ public class DynamicController(
     {
          
         
-        
-        return Ok();
+        return NoContent();
     }
 
     [HttpPut("{tableName}")]
@@ -72,8 +71,8 @@ public class DynamicController(
     /// Creates a sortable id. The id is chronologically sortable and unique.
     /// </summary>
     /// <returns></returns>
-    [HttpGet("GetId")]
-    public Guid GetId()
+    [HttpGet("GetNewId")]
+    public Guid GetNewId()
     {
         return Ulid.NewUlid().ToGuid();
     }

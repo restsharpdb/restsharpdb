@@ -6,4 +6,5 @@ namespace PostgrestSharp.Abstract.Interfaces.Services;
 public interface IJsonObjectHandlerService
 {
     Guid PostMethodHandler(string tableName, JsonElement element);
+    Guid PutMethodHandler(string tableName, JsonElement element);
 }

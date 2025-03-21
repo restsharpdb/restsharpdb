@@ -7,7 +7,6 @@ using PostgrestSharp.Abstract;
 using PostgrestSharp.Abstract.DTOs;
 using PostgrestSharp.Abstract.Exceptions;
 using PostgrestSharp.Abstract.Interfaces.Services;
-using PostgrestSharp.WebApi.Controllers;
 
 namespace PostgrestSharp.Business.Services;
 
@@ -58,28 +57,29 @@ public class JsonObjectHandlerService(
         var pkFieldName = _tableMetadata.SingleOrDefault(s => s.IsPrimaryKey)?.ColumnName
                           ?? throw new NullReferenceException("Primary key not found in tableMetadata");
 
+        
+        
+        //TODO: need think about this. If we set a value or throw a exeption, we should return a bad request.This can be a configuration
+        //TODO: This can be a configuration to, like accept or not a primary key not set.
+        Guid pkValue;
+
         //Check if the primary is present in sent object
-        var isPkSet = fieldValues.Any(x =>
-            x.Name.Equals(pkFieldName, StringComparison.InvariantCultureIgnoreCase));
-
-
-        //If primary is set, then we need to check if already exists in database
-        if (isPkSet)
+        if (fieldValues.Any(x => x.Name.Equals(pkFieldName, StringComparison.InvariantCultureIgnoreCase)))
         {
+            //If primary is set, then we need to check if already exists in database
             comm.CommandText = $"select * from {tableName} where {pkFieldName} = @{pkFieldName}";
             var tmpValue = fieldValues.SingleOrDefault(s => s.Name == pkFieldName)?.RawValue;
             comm.Parameters.AddWithValue($"@{pkFieldName}", tmpValue!);
             var existing = comm.ExecuteScalar();
-            if (existing is not null) throw new AlreadyExistsException($"Object Id Already Exists. ID {existing} ");
+            if (existing is not null) throw new AlreadyExistsException($"Object Id Already Exists. ID {existing}.");
             comm.Parameters.Clear();
+            pkValue = Guid.Parse(tmpValue?.ToString() ?? throw new NullReferenceException());
+        }
+        else
+        {
+            pkValue = Ulid.NewUlid().ToGuid();
         }
 
-        var pkValue = Guid.Empty;
-
-        //TODO: think about this. If we set a value or throw a exeption, we should return a bad request.This can be a configuration
-        //TODO: This can be a configuration to, like accept or not a primary key not set.
-        //Just thinking about this
-        if (!isPkSet) pkValue = Ulid.NewUlid().ToGuid();
 
         //the value is discarded but is created in the context of the array of field and values, this
         //ensures the creation
@@ -88,7 +88,7 @@ public class JsonObjectHandlerService(
 
 
         //Adds the previously calculated primary key value
-        comm.Parameters.AddWithValue($"@{pkFieldName}", pkValue);
+        comm.Parameters.AddWithValue($"@{pkFieldName}",  pkValue );
 
         comm.CommandText =
             $"insert into {tableName} ({string.Join(",", fieldValues.Select(x => x.Name))},{pkFieldName}) values" +
@@ -96,6 +96,11 @@ public class JsonObjectHandlerService(
 
         comm.ExecuteNonQuery();
         return pkValue;
+    }
+
+    public Guid PutMethodHandler(string tableName, JsonElement element)
+    {
+        throw new NotImplementedException();
     }
 
     ///<summary>

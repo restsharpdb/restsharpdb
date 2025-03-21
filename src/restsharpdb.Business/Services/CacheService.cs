@@ -5,7 +5,7 @@ using PostgrestSharp.Abstract;
 using PostgrestSharp.Abstract.Enums;
 using PostgrestSharp.Abstract.Interfaces.Services;
 
-namespace PostgrestSharp.WebApi.Controllers;
+namespace PostgrestSharp.Business.Services;
 
 public class CacheService(IMemoryCache cache, MemoryCacheEntryOptions options) : ICacheService
 {

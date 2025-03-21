@@ -2,7 +2,6 @@ using Microsoft.Extensions.Caching.Memory;
 using Npgsql;
 using PostgrestSharp.Abstract.Interfaces.Services;
 using PostgrestSharp.Business.Services;
-using PostgrestSharp.WebApi.Controllers;
 
 
 var builder = WebApplication.CreateBuilder(args);
